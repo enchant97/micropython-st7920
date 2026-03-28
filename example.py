@@ -16,7 +16,11 @@ from machine import Pin, SPI
 from st7920 import ST7920_SPI
 
 
-screen = ST7920_SPI(SPI(0, baudrate=1_000_000), Pin(17))
+screen = ST7920_SPI(
+    SPI(0, baudrate=1_000_000),
+    Pin(17),
+    partial_updates=True,
+)
 screen.init()
 screen.clear()
 screen.text("Hello World!", 0, 0)
